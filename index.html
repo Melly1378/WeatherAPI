@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Violet Azure Weather</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- Animated background layers -->
+    <div class="sky" aria-hidden="true">
+        <div class="cloud cloud--a"></div>
+        <div class="cloud cloud--b"></div>
+        <div class="cloud cloud--c"></div>
+
+        <div class="wind wind--1"></div>
+        <div class="wind wind--2"></div>
+        <div class="wind wind--3"></div>
+
+        <div class="grain"></div>
+    </div>
+
+    <main class="wrap">
+        <section class="phone" aria-label="Weather App">
+            <header class="top">
+                <div class="brand">
+                    <div class="brand__title">Violet Azure Weather</div>
+                    <div class="brand__sub" id="subtitle">Manila</div>
+                </div>
+
+                <button class="toggle" id="themeToggle" aria-label="Toggle day/night">
+          <span class="toggle__dot" aria-hidden="true"></span>
+          <span class="toggle__text" id="themeLabel">Night</span>
+        </button>
+            </header>
+
+            <!-- Search row (balanced grid) -->
+            <section class="search" aria-label="Search city">
+                <div class="search__field">
+                    <input id="cityInput" type="text" inputmode="search" autocomplete="off" placeholder="Search city (e.g., Manila, Tokyo)" />
+                    <div class="suggest" id="suggest" role="listbox" aria-label="City suggestions"></div>
+                </div>
+                <button class="btn" id="searchBtn">Search</button>
+            </section>
+
+            <!-- Status row -->
+            <section class="status" aria-label="Status">
+                <div class="pill" id="statusPill">Ready</div>
+                <div class="error" id="errorBox" role="alert" aria-live="polite"></div>
+            </section>
+
+            <!-- Current weather (two-column grid) -->
+            <section class="current" aria-label="Current weather">
+                <div class="current__main">
+                    <div class="icon" id="icon" aria-hidden="true">⛅</div>
+                    <div class="temp">
+                        <div class="temp__value" id="tempValue">--°</div>
+                        <div class="temp__desc" id="tempDesc">--</div>
+                    </div>
+                </div>
+
+                <div class="current__stats">
+                    <div class="stat">
+                        <div class="stat__k">Humidity</div>
+                        <div class="stat__v" id="humValue">--%</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat__k">Wind</div>
+                        <div class="stat__v" id="windValue">-- m/s</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat__k">Feels like</div>
+                        <div class="stat__v" id="feelsValue">--°</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat__k">Min / Max</div>
+                        <div class="stat__v" id="minmaxValue">--° / --°</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5-day forecast -->
+            <section class="forecast" aria-label="5-day forecast">
+                <div class="sectionTitle">5-Day Forecast</div>
+                <div class="forecast__grid" id="forecastGrid"></div>
+            </section>
+
+            <footer class="hint" aria-hidden="true">
+                Tip: Click a suggestion to auto-fill city.
+            </footer>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
